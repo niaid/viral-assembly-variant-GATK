@@ -17,7 +17,7 @@ rule index_ref:
     input:
         ref=config["params"]["ref"]
     output:
-        multiext(f"{accession}.1.bt2", ".2.bt2", ".3.bt2", ".4.bt2", ".rev.1.bt2", ".rev.2.bt2")
+        multiext(f"{accession}", ".1.bt2", ".2.bt2", ".3.bt2", ".4.bt2", ".rev.1.bt2", ".rev.2.bt2")
     log:
         "log/reference/bowtie2_index.log"
     conda:
@@ -43,7 +43,9 @@ rule bowtie2:
     input:
         in1="data/{sample}/ec/{sample}_R1.clean.ec.fastq.gz",
         in2="data/{sample}/ec/{sample}_R2.clean.ec.fastq.gz",
-        ref=config["params"]["ref"]
+        ref=config["params"]["ref"],
+        idx=rules.index_ref.output
+
     output:
         "data/{sample}/bowtie2/{sample}.sort.bam"
     params:
