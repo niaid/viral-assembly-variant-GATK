@@ -12,6 +12,7 @@
 !Snakefile
 !samples.csv
 
+
 # Ignore all files named .DS_Store or starting with ._
 **/.DS_Store
 **/._*
@@ -26,4 +27,6 @@
 /ref/*
 !/ref/adapters.fa
 !/ref/HIV_B.K03455.HXB2.fasta
+
+!Consiter/
 
