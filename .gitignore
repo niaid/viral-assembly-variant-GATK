@@ -1,0 +1,29 @@
+
+# Blacklist files/folders in same directory as the .gitignore file
+/*
+
+# Whitelist submit, config, and main snakmake files
+!.gitignore
+!.gitmodules
+!README.md
+!LICENSE
+!config.yaml
+!cluster.yaml
+!Snakefile
+!samples.csv
+
+# Ignore all files named .DS_Store or starting with ._
+**/.DS_Store
+**/._*
+
+# Whitelist only rules, schemas, scripts
+!rules/
+!scripts/
+!envs/
+
+# for data directory only want reference and external dir contents
+!ref/
+/ref/*
+!/ref/adapters.fa
+!/ref/HIV_B.K03455.HXB2.fasta
+
